@@ -14,8 +14,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
+            <state relative-caret-position="122">
+              <caret line="122" selection-start-line="122" selection-end-line="122" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,33 +38,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/RegistrationValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+            <state relative-caret-position="527">
+              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
               <folding>
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#690#691#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#762#763#0" expanded="true" />
-                <element signature="e#794#795#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-                <element signature="e#937#938#0" expanded="true" />
-                <element signature="e#985#986#0" expanded="true" />
-                <element signature="e#1025#1026#0" expanded="true" />
                 <element signature="e#1153#1154#0" expanded="true" />
                 <element signature="e#1184#1185#0" expanded="true" />
                 <element signature="e#1232#1233#0" expanded="true" />
                 <element signature="e#1272#1273#0" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1110#1111#0" expanded="true" />
-                <element signature="e#1150#1151#0" expanded="true" />
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1221#1222#0" expanded="true" />
-                <element signature="e#1256#1257#0" expanded="true" />
-                <element signature="e#1312#1313#0" expanded="true" />
-                <element signature="e#1360#1361#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="90" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
+            <state relative-caret-position="221">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -82,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/UseCases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -91,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
+            <state relative-caret-position="381">
+              <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,9 +99,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/RandData.java" />
         <option value="$USER_HOME$/eclipse-workspace/Webelements/src/dynamic_dropdowns.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/RegistrationValues.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java" />
       </list>
     </option>
   </component>
@@ -136,6 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,12 +211,16 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../1und1 company/UsecaseAutomat-3.2.0-SNAPSHOT" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\1und1 company-20190119T202150Z-001\ITC_SampleCode" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -279,34 +264,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 20h 17m 22s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 09h 35m 02s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 22h 08m 44s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 30m 46s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 22h 11m 54s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 36m 42s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 22h 14m 05s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 41m 09s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 22h 16m 20s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 46m 10s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.19 at 23h 57m 34s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 49m 37s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 00h 16m 00s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 56m 14s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 01h 15m 58s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 15h 59m 13s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 01h 18m 14s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 16h 02m 42s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 01h 20m 40s.xml">
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.20 at 18h 36m 39s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -314,11 +299,10 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32843137" />
@@ -330,6 +314,7 @@
       <window_info anchor="bottom" id="ConsoleMavenPlugin" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32843137" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -342,13 +327,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java</url>
-          <line>145</line>
+          <line>176</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java</url>
-          <line>26</line>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -357,6 +342,12 @@
           <line>12</line>
           <properties />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -418,77 +409,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/RegistrationValues.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="57" column="8" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+        <state relative-caret-position="122">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
           <folding>
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#794#795#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1221#1222#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/UseCases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/RegistrationValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="90" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
+        <state relative-caret-position="527">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+          <folding>
+            <element signature="e#1153#1154#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1232#1233#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="15" column="86" selection-start-line="15" selection-start-column="86" selection-end-line="15" selection-end-column="86" />
+        <state relative-caret-position="381">
+          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

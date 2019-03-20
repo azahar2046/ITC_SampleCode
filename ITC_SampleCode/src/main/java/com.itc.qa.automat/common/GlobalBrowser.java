@@ -4,11 +4,13 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -91,6 +93,35 @@ public class GlobalBrowser {
         }
     }
 
+    protected void clickMultiSelect(String text) {
+
+
+        try {
+
+            sleep(100);
+
+            List<WebElement> webElementList = webdriver.findElements(By.xpath("//*[contains(@class,'multiselect__content-wrapper')]/ul/li"));
+
+            for(WebElement webElement:webElementList){
+
+                String text_1 = webElement.getText();
+
+                System.out.println(text_1);
+
+                if(text_1.equalsIgnoreCase(text)){
+
+                    webElement.click();
+                    break;
+                }
+
+            }
+
+        } catch (Throwable t) {
+
+            throw  new RuntimeException(t);
+        }
+    }
+
     protected String sendKeys(By by, String keys) {
 
         sleep(100);
@@ -145,15 +176,15 @@ public class GlobalBrowser {
 
         WebElement webElement = webdriver.findElement(by);
 
-        js.executeScript("arguments[0].click();",webElement);
-
         webdriver.findElement(by).sendKeys(few_chars);
 
-        sleep(10000);
+        sleep(2000);
 
         String script = "return arguments[0].value;";
 
         String text = (String)js.executeScript(script,webElement);
+
+        System.out.println(text);
 
         int i=0;
 
@@ -161,9 +192,9 @@ public class GlobalBrowser {
 
             webdriver.findElement(by).sendKeys(Keys.DOWN);
 
-            webdriver.findElement(by).sendKeys(Keys.ENTER);
-
             text = (String)js.executeScript(script,webElement);
+
+            System.out.println(text);
 
             i++;
 
@@ -173,7 +204,13 @@ public class GlobalBrowser {
             }
         }
 
-
     }
 
+
+    public void actionsClick(By by){
+
+        Actions actions = new Actions(webdriver);
+
+        actions.moveToElement(webdriver.findElement(by)).click().perform();
+    }
 }

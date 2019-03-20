@@ -9,12 +9,13 @@ public class PageRegistration {
     public static final By textFieldName = By.name("fullname");
     public static final By textFieldEmail = By.cssSelector("input[name='email'][type='email']");
     public static final By textFieldPassword = By.cssSelector("input[name='Password']");
-    public static final By textFieldCity = By.cssSelector("div.multiselect.modal-ref-class");
-    public static final By textFieldMobile = By.name("input[name='mobile'][type='tel']");
-    public static final By linkFileUpload = By.cssSelector("input#file-upload");
-    public static final By buttonSubmit_1 = By.cssSelector("input[class='btn']");
+    public static final By textFieldCurrentLocation = By.cssSelector("div.multiselect.modal-ref-class");
+    public static final By textFieldCity = By.cssSelector("input.multiselect__input.modal-ref-class");
+    public static final By textFieldMobile = By.cssSelector("input[name='mobile'][type='tel']");
+    public static final By linkFileUpload = By.cssSelector("div[class='uploadResume fl pr tc'] input");
+    public static final By buttonSubmit_1 = By.xpath("//input[contains(@value,'Register')]");
 
-    public static final By selectHighestQualification = By.cssSelector("input[data-vv-name='highestQualification_0']']");
+    public static final By textFieldHighestQualification = By.cssSelector("input[data-vv-name='highestQualification_0']']");
     public static final By selectSpecialisation = By.cssSelector("input[data-vv-name='specialization_0']");
     public static final By selectInstitute = By.cssSelector("input[data-vv-name='college_0']");
     public static final By radioBtnEducationType = By.cssSelector("input[type='radio']");
