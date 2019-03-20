@@ -6,6 +6,7 @@ public class RegistrationValues {
 
     private String name;
     private String birth;
+    private String city_few;
     private String city;
     private String email;
     private String password;
@@ -17,7 +18,8 @@ public class RegistrationValues {
         this.email = RandData.getRandomMail();
         this.password = "123456789";
         this.mobileNumber = RandData.getRandomMobileNumber();
-        this.city = "Hyd";
+        this.city_few = "hyd";
+        this.city = "hyderabad";
     }
 
 
@@ -43,6 +45,14 @@ public class RegistrationValues {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCity_few() {
+        return city_few;
+    }
+
+    public void setCity_few(String city_few) {
+        this.city_few = city_few;
     }
 
     public String getCity() {

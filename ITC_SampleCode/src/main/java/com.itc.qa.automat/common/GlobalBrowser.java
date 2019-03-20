@@ -1,8 +1,6 @@
 package com.itc.qa.automat.common;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -46,7 +44,8 @@ public class GlobalBrowser {
 
             webdriver = new ChromeDriver(new ChromeDriverService.Builder().build(), options);
             webdriver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
-            webdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            webdriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            webdriver.manage().timeouts().setScriptTimeout(30,TimeUnit.SECONDS);
 
         } catch (Exception e) {
 
@@ -139,4 +138,42 @@ public class GlobalBrowser {
             throw new RuntimeException(e);
         }
     }
+
+    public void autoSuggestDropdown(By by, String few_chars, String target_value){
+
+        JavascriptExecutor js = (JavascriptExecutor)webdriver;
+
+        WebElement webElement = webdriver.findElement(by);
+
+        js.executeScript("arguments[0].click();",webElement);
+
+        webdriver.findElement(by).sendKeys(few_chars);
+
+        sleep(10000);
+
+        String script = "return arguments[0].value;";
+
+        String text = (String)js.executeScript(script,webElement);
+
+        int i=0;
+
+        while (!text.equalsIgnoreCase(target_value)) {
+
+            webdriver.findElement(by).sendKeys(Keys.DOWN);
+
+            webdriver.findElement(by).sendKeys(Keys.ENTER);
+
+            text = (String)js.executeScript(script,webElement);
+
+            i++;
+
+            if(i>9) {
+
+                break;
+            }
+        }
+
+
+    }
+
 }

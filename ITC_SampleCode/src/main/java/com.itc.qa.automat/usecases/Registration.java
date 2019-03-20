@@ -4,7 +4,6 @@ import com.gargoylesoftware.htmlunit.Page;
 import com.itc.qa.automat.common.Browser;
 import com.itc.qa.automat.pages.PageRegistration;
 import com.itc.qa.automat.values.RegistrationValues;
-import sun.security.krb5.internal.PAEncTSEnc;
 
 public class Registration extends Browser {
 
@@ -15,7 +14,7 @@ public class Registration extends Browser {
         sendKeys(PageRegistration.textFieldName,registrationValues.getName());
         sendKeys(PageRegistration.textFieldEmail,registrationValues.getEmail());
         sendKeys(PageRegistration.textFieldPassword,registrationValues.getPassword());
-        sendKeys(PageRegistration.textFieldCity,registrationValues.getCity());
+        autoSuggestDropdown(PageRegistration.textFieldCity,registrationValues.getCity_few(),registrationValues.getCity());
         sendKeys(PageRegistration.textFieldMobile,registrationValues.getMobileNumber());
         click(PageRegistration.buttonSubmit_1);
 
@@ -30,7 +29,7 @@ public class Registration extends Browser {
 
         } catch (Throwable t) {
 
-           t.getStackTrace();
+           throw  new RuntimeException(t);
 
         } finally {
 
@@ -47,7 +46,7 @@ public class Registration extends Browser {
 
         } catch (Throwable t) {
 
-            t.getStackTrace();
+            throw  new RuntimeException(t);
 
         } finally {
 
