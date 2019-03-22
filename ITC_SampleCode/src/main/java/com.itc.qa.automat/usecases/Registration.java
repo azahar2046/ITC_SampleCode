@@ -23,11 +23,11 @@ public class Registration extends Browser {
 
         sendKeys(PageRegistration.textFieldMobile, registrationValues.getMobileNumber());
 
-        actionsClick(PageRegistration.linkFileUpload);
+        //actionsClick(PageRegistration.linkFileUpload);
 
-        fileUpload("\\resume.pdf");
+        //fileUpload("\\resume.pdf");
 
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistration.UploadSuccess));
+        //waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistration.UploadSuccess));
 
         actionsClick(PageRegistration.buttonSubmit_1);
 
@@ -36,17 +36,11 @@ public class Registration extends Browser {
         actionsSendKeys(PageRegistration.textFieldHighestQualification,registrationValues.getQualification_fewChars());
         clickMultiSelect(PageRegistration.textFieldHighestQualification,registrationValues.getQualification());
 
-        sleep(100);
-
         actionsSendKeys(PageRegistration.textFieldSpecialisation, registrationValues.getSpecialization_fewChars());
         clickMultiSelect(PageRegistration.textFieldSpecialisation, registrationValues.getSpecialization());
 
-        sleep(100);
-
         actionsSendKeys(PageRegistration.textFieldInstitute,registrationValues.getInstitute_fewchars());
         clickMultiSelect(PageRegistration.textFieldInstitute,registrationValues.getInstitute());
-
-        sleep(100);
 
         actionsClick(PageRegistration.textFieldPassingYear);
         clickMultiSelect(PageRegistration.textFieldPassingYear,registrationValues.getPassingYear());

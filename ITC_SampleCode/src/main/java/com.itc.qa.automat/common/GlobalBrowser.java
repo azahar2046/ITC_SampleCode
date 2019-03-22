@@ -9,10 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.sikuli.script.FindFailed;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Region;
-import org.sikuli.script.Screen;
+
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -25,7 +22,7 @@ import java.util.function.Function;
 public class GlobalBrowser {
 
     protected final WebDriver webdriver;
-    protected static String userDir;
+    private static String userDir;
 
     protected GlobalBrowser() {
 
@@ -100,7 +97,7 @@ public class GlobalBrowser {
         }
     }
 
-    protected void clickMultiSelect(By by,String text) {
+    protected void clickMultiSelect(By by, String text) {
 
         try {
 
@@ -113,8 +110,6 @@ public class GlobalBrowser {
                 String text_1 = webElement.getText();
 
                 if (text_1.contains(text)) {
-
-                    waitUntil(ExpectedConditions.elementToBeClickable(webElement));
 
                     actionsClick(webElement);
 
@@ -129,6 +124,11 @@ public class GlobalBrowser {
         }
     }
 
+    protected void radioButton(By by, String text){
+
+        webdriver.findElement(By.xpath("//span[text()='"+text+"']")).findElement(by).click();
+
+    }
 
     protected void sendKeys(By by, String keys) {
 
@@ -174,62 +174,26 @@ public class GlobalBrowser {
         }
     }
 
-    protected void autoSuggestDropdown(By by, String few_chars, String target_value) {
-
-        JavascriptExecutor js = (JavascriptExecutor) webdriver;
-
-        WebElement webElement = webdriver.findElement(by);
-
-        webdriver.findElement(by).sendKeys(few_chars);
-
-        sleep(2000);
-
-        String script = "return arguments[0].value;";
-
-        String text = (String) js.executeScript(script, webElement);
-
-        System.out.println(text);
-
-        int i = 0;
-
-        while (!text.equalsIgnoreCase(target_value)) {
-
-            webdriver.findElement(by).sendKeys(Keys.DOWN);
-
-            text = (String) js.executeScript(script, webElement);
-
-            System.out.println(text);
-
-            i++;
-
-            if (i > 9) {
-
-                break;
-            }
-        }
-
-    }
-
 
     protected void actionsSendKeys(By by, String text) {
 
         Actions actions = new Actions(webdriver);
-
         actions.moveToElement(webdriver.findElement(by)).click().sendKeys(text).perform();
+        sleep(1000);
     }
 
     protected void actionsClick(By by) {
 
         Actions actions = new Actions(webdriver);
-
         actions.moveToElement(webdriver.findElement(by)).click().perform();
+        sleep(1000);
     }
 
     protected void actionsClick(WebElement webElement) {
 
         Actions actions = new Actions(webdriver);
-
         actions.moveToElement(webElement).click().perform();
+        sleep(1000);
     }
 
     protected void fileUpload(String file) {
@@ -252,6 +216,5 @@ public class GlobalBrowser {
             e.printStackTrace();
         }
 
-        sleep(1000);
     }
 }

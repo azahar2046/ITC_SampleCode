@@ -28,16 +28,16 @@ public class RegistrationValues {
         this.password = "123456789";
         this.mobileNumber = RandData.getRandomMobileNumber();
         this.city_fewchars = "hyd";
-        this.city = "hyderabad";
-        this.qualification = "MCA";
-        this.qualification_fewChars = "MC";
-        this.specialization = "Visual Communication";
-        this.specialization_fewChars = "Vis";
-        this.institute_fewchars = "osm";
-        this.institute = "OSMANIA UNIVERSITY";
-        this.PassingYear = "2014";
-        this.skills_fewchars = "seleni";
-        this.skills = "Selenium 2";
+        this.city = "Hyderabad";
+        this.qualification = "B.E/B.Tech";
+        this.qualification_fewChars = "B.E";
+        this.specialization = "Electrical engineering";
+        this.specialization_fewChars = "elec";
+        this.institute_fewchars = "muff";
+        this.institute = "Muffakhamjah College";
+        this.PassingYear = "2016";
+        this.skills_fewchars = "mat";
+        this.skills = "Matlab";
     }
 
     public String getSpecialization() {

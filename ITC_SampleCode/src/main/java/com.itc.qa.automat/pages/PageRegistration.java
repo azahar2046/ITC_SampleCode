@@ -22,15 +22,17 @@ public class PageRegistration {
     public static final By textFieldSkills = By.xpath("//span[contains(text(),'Skills ')]/parent::div/parent::div");
     public static final By buttonContinue_2 = By.cssSelector("input[name='educationalDetails']");
 
-    public static final By linkUploadPicture = By.cssSelector("img[id='user-avtar']");
-    public static final By textfieldLocation = By.cssSelector("");
-    public static final By textfieldIndustry = By.cssSelector("");
-    public static final By textfieldFunction = By.cssSelector("");
-    public static final By textfieldRole = By.cssSelector("");
-    public static final By checkBoxEmploymentType = By.name("emplyType");
-    public static final By checkboxJobType = By.name("jobType");
-    public static final By checkBoxGender = By.name("gender");
-    public static final By textFieldBirth = By.name("birth");
+    public static final By linkUploadPicture = By.cssSelector(".btn.uploadImg");
+    public static final By textFieldLocation = By.xpath("//span[contains(text(),'Location')]/parent::div/parent::div");
+    public static final By textFieldIndustry = By.xpath("//span[contains(text(),'Industry')]/parent::div/parent::div");
+    public static final By textFieldFunction = By.xpath("//span[contains(text(),'Function')]/parent::div/parent::div");
+    public static final By textFieldRole = By.xpath("//span[contains(text(),'Role')]/parent::div/parent::div");
+    public static final By textFieldBirth = By.xpath("div.vdp-datepicker");
+    public static final By textFieldLanguage = By.xpath("//span[contains(text(),'Language')]/parent::div/parent::div");
+    public static final By textFiledLanguageLevel = By.xpath("//span[contains(text(),'Level')]/parent::div/parent::div");
+
+    public static final By textFieldMaritalStatus = By.xpath("//span[contains(text(),'Marital Status')]/parent::div/parent::div");
+    public static final By RadioButton = By.xpath("//parent::label/preceding-sibling::span/input");
     public static final By buttonSubmit_3 = By.cssSelector("input[class='btn']");
 
     public static final By logoProfile = By.cssSelector("a.main-nav-link.pr");
