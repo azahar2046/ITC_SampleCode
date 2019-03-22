@@ -9,7 +9,14 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Region;
+import org.sikuli.script.Screen;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -18,6 +25,7 @@ import java.util.function.Function;
 public class GlobalBrowser {
 
     protected final WebDriver webdriver;
+    protected static String userDir;
 
     protected GlobalBrowser() {
 
@@ -25,7 +33,7 @@ public class GlobalBrowser {
 
             String osName = System.getProperty("os.name");
 
-            String userDir = System.getProperty("user.dir");
+            userDir = System.getProperty("user.dir");
 
             if (osName != null && osName.toLowerCase().contains("windows")) {
 
@@ -45,9 +53,8 @@ public class GlobalBrowser {
             options.addArguments("--disable-browser-side-navigation");
 
             webdriver = new ChromeDriver(new ChromeDriverService.Builder().build(), options);
-            webdriver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
-            webdriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            webdriver.manage().timeouts().setScriptTimeout(30,TimeUnit.SECONDS);
+            webdriver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+            webdriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         } catch (Exception e) {
 
@@ -63,7 +70,7 @@ public class GlobalBrowser {
             return expectedCondition.apply(driver);
         };
 
-        WebDriverWait wait = new WebDriverWait(webdriver, 10);
+        WebDriverWait wait = new WebDriverWait(webdriver, 40);
         wait.until(function);
     }
 
@@ -89,28 +96,28 @@ public class GlobalBrowser {
 
         } catch (Throwable t) {
 
-            throw  new RuntimeException(t);
+            throw new RuntimeException(t);
         }
     }
 
-    protected void clickMultiSelect(String text) {
-
+    protected void clickMultiSelect(By by,String text) {
 
         try {
 
             sleep(100);
 
-            List<WebElement> webElementList = webdriver.findElements(By.xpath("//*[contains(@class,'multiselect__content-wrapper')]/ul/li"));
+            List<WebElement> webElementList = webdriver.findElement(by).findElements(By.xpath("//*[contains(@class,'multiselect__content-wrapper')]/ul/li"));
 
-            for(WebElement webElement:webElementList){
+            for (WebElement webElement : webElementList) {
 
                 String text_1 = webElement.getText();
 
-                System.out.println(text_1);
+                if (text_1.contains(text)) {
 
-                if(text_1.equalsIgnoreCase(text)){
+                    waitUntil(ExpectedConditions.elementToBeClickable(webElement));
 
-                    webElement.click();
+                    actionsClick(webElement);
+
                     break;
                 }
 
@@ -118,20 +125,17 @@ public class GlobalBrowser {
 
         } catch (Throwable t) {
 
-            throw  new RuntimeException(t);
+            throw new RuntimeException(t);
         }
     }
 
-    protected String sendKeys(By by, String keys) {
+
+    protected void sendKeys(By by, String keys) {
 
         sleep(100);
         waitUntil(ExpectedConditions.visibilityOfElementLocated(by));
         WebElement textfield = webdriver.findElement(by);
-        String value = textfield.getAttribute("value");
-        textfield.clear();
         textfield.sendKeys(keys);
-
-        return value;
     }
 
     protected void selectDropdownByVisibleText(By by, String visibleText) {
@@ -170,9 +174,9 @@ public class GlobalBrowser {
         }
     }
 
-    public void autoSuggestDropdown(By by, String few_chars, String target_value){
+    protected void autoSuggestDropdown(By by, String few_chars, String target_value) {
 
-        JavascriptExecutor js = (JavascriptExecutor)webdriver;
+        JavascriptExecutor js = (JavascriptExecutor) webdriver;
 
         WebElement webElement = webdriver.findElement(by);
 
@@ -182,23 +186,23 @@ public class GlobalBrowser {
 
         String script = "return arguments[0].value;";
 
-        String text = (String)js.executeScript(script,webElement);
+        String text = (String) js.executeScript(script, webElement);
 
         System.out.println(text);
 
-        int i=0;
+        int i = 0;
 
         while (!text.equalsIgnoreCase(target_value)) {
 
             webdriver.findElement(by).sendKeys(Keys.DOWN);
 
-            text = (String)js.executeScript(script,webElement);
+            text = (String) js.executeScript(script, webElement);
 
             System.out.println(text);
 
             i++;
 
-            if(i>9) {
+            if (i > 9) {
 
                 break;
             }
@@ -207,10 +211,47 @@ public class GlobalBrowser {
     }
 
 
-    public void actionsClick(By by){
+    protected void actionsSendKeys(By by, String text) {
+
+        Actions actions = new Actions(webdriver);
+
+        actions.moveToElement(webdriver.findElement(by)).click().sendKeys(text).perform();
+    }
+
+    protected void actionsClick(By by) {
 
         Actions actions = new Actions(webdriver);
 
         actions.moveToElement(webdriver.findElement(by)).click().perform();
+    }
+
+    protected void actionsClick(WebElement webElement) {
+
+        Actions actions = new Actions(webdriver);
+
+        actions.moveToElement(webElement).click().perform();
+    }
+
+    protected void fileUpload(String file) {
+
+        StringSelection attachment = new StringSelection(userDir + file);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(attachment, null);
+
+        sleep(1000);
+
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+        sleep(1000);
     }
 }
