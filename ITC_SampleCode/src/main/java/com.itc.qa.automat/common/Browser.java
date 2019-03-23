@@ -1,22 +1,20 @@
 package com.itc.qa.automat.common;
 
-import com.itc.qa.automat.pages.PageRegistration;
+import com.itc.qa.automat.pages.PageRegistrationPersonalDetails;
 
 public class Browser extends GlobalBrowser {
 
-    //https://www.phptravels.net/register
-
-    public void goToPageHome() {
+    private void goToPageHome() {
 
         String url = "https://www.monsterindia.com/seeker/registration";
-        webdriver.get(url);
+        openUrl(url);
 
     }
 
     public void goToPageRegistration() {
 
         goToPageHome();
-        click(PageRegistration.linkFresher);
+        clickByActions(PageRegistrationPersonalDetails.linkFresher);
 
     }
 }

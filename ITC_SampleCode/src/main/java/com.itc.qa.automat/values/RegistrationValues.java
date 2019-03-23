@@ -1,12 +1,13 @@
 package com.itc.qa.automat.values;
 
+import com.itc.qa.automat.common.Enums;
 import com.itc.qa.automat.common.RandData;
 
 public class RegistrationValues {
 
     private String name;
     private String birth;
-    private String city_fewchars;
+    private String city_fewChars;
     private String city;
     private String email;
     private String password;
@@ -15,11 +16,19 @@ public class RegistrationValues {
     private String qualification_fewChars;
     private String specialization;
     private String specialization_fewChars;
-    private String institute_fewchars;
+    private String institute_fewChars;
     private String institute;
     private String PassingYear;
-    private String skills_fewchars;
+    private String skills_fewChars;
     private String skills;
+    private String industry_fewChars;
+    private String industry;
+    private String role_fewChars;
+    private String role;
+    private String jobType;
+    private String employmentType;
+    private String gender;
+    private String marital_status;
 
     public RegistrationValues() {
 
@@ -27,17 +36,50 @@ public class RegistrationValues {
         this.email = RandData.getRandomMail();
         this.password = "123456789";
         this.mobileNumber = RandData.getRandomMobileNumber();
-        this.city_fewchars = "hyd";
+        this.city_fewChars = "hyd";
         this.city = "Hyderabad";
         this.qualification = "B.E/B.Tech";
         this.qualification_fewChars = "B.E";
         this.specialization = "Electrical engineering";
         this.specialization_fewChars = "elec";
-        this.institute_fewchars = "muff";
+        this.institute_fewChars = "muff";
         this.institute = "Muffakhamjah College";
         this.PassingYear = "2016";
-        this.skills_fewchars = "mat";
+        this.skills_fewChars = "mat";
         this.skills = "Matlab";
+        this.industry_fewChars  =  "IT";
+        this.industry  = "IT/ Computers - Software";
+        this.role_fewChars = "tes";
+        this.role =  "Software Test Engineer";
+        this.jobType = Enums.JobType.Permanent.getVisibleText();
+        this.employmentType = Enums.employmentType.Full_time.getVisibleText();
+        this.gender = Enums.Gender.Male.getVisibleText();
+        this.marital_status = "Single/Unmarried";
+    }
+
+    public String getMarital_status() {
+        return marital_status;
+    }
+
+    public String getEmploymentType() {
+        return employmentType;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+
+    public String getJobType() {
+        return jobType;
+    }
+
+    public String getRole_fewChars() {
+        return role_fewChars;
+    }
+
+    public String getRole() {
+        return role;
     }
 
     public String getSpecialization() {
@@ -52,110 +94,65 @@ public class RegistrationValues {
         return qualification_fewChars;
     }
 
-    public void setQualification_fewChars(String qualification_fewChars) {
-        this.qualification_fewChars = qualification_fewChars;
-    }
-
-    public String getSkills_fewchars() {
-        return skills_fewchars;
-    }
-
-    public void setSkills_fewchars(String skills_fewchars) {
-        this.skills_fewchars = skills_fewchars;
+    public String getSkills_fewChars() {
+        return skills_fewChars;
     }
 
     public String getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
-        this.skills = skills;
+    public String getIndustry() {
+        return industry;
+    }
+
+    public String getIndustry_fewChars() {
+        return industry_fewChars;
     }
 
     public String getPassingYear() {
         return PassingYear;
     }
 
-    public void setPassingYear(String passingYear) {
-        PassingYear = passingYear;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCity_fewchars() {
-        return city_fewchars;
-    }
-
-    public void setCity_fewchars(String city_fewchars) {
-        this.city_fewchars = city_fewchars;
+    public String getCity_fewChars() {
+        return city_fewChars;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getMobileNumber() {
         return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
     }
 
     public String getQualification() {
         return qualification;
     }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
-    }
-
     public String getInstitute() {
         return institute;
     }
 
-    public void setInstitute(String institute) {
-        this.institute = institute;
+    public String getInstitute_fewChars() {
+        return institute_fewChars;
     }
 
-    public String getInstitute_fewchars() {
-        return institute_fewchars;
-    }
-
-    public void setInstitute_fewchars(String institute_fewchars) {
-        this.institute_fewchars = institute_fewchars;
-    }
 
     @Override
     public String toString() {
-
-        return "RegistrationValues {name='" + name + "', city='" + city + "',  email='" + email + "', password='" + password + "', mobileNumber='" + mobileNumber + "'}";
+        return super.toString();
     }
-
 }

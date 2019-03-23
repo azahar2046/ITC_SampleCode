@@ -1,67 +1,136 @@
 package com.itc.qa.automat.usecases;
 
 import com.itc.qa.automat.common.Browser;
-import com.itc.qa.automat.pages.PageRegistration;
+import com.itc.qa.automat.pages.PageRegistrationEducationDetails;
+import com.itc.qa.automat.pages.PageRegistrationPersonalDetails;
+import com.itc.qa.automat.pages.PageRegistrationPreferences;
+import com.itc.qa.automat.pages.PageUserHome;
 import com.itc.qa.automat.values.RegistrationValues;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class Registration extends Browser {
 
-
-    private void fill(RegistrationValues registrationValues)  {
+    private void fillPersonalDetails(RegistrationValues rv){
 
         goToPageRegistration();
-        sendKeys(PageRegistration.textFieldName, registrationValues.getName());
+        sendKeys(PageRegistrationPersonalDetails.textFieldName, rv.getName());
 
-        sendKeys(PageRegistration.textFieldEmail, registrationValues.getEmail());
+        sendKeys(PageRegistrationPersonalDetails.textFieldEmail, rv.getEmail());
 
-        sendKeys(PageRegistration.textFieldPassword, registrationValues.getPassword());
+        sendKeys(PageRegistrationPersonalDetails.textFieldPassword, rv.getPassword());
 
-        actionsSendKeys(PageRegistration.textFieldCurrentLocation,registrationValues.getCity_fewchars());
-        clickMultiSelect(PageRegistration.textFieldCurrentLocation,registrationValues.getCity());
+        sendKeysByActions(PageRegistrationPersonalDetails.textFieldCurrentLocation,rv.getCity_fewChars());
+        selectOption(PageRegistrationPersonalDetails.textFieldCurrentLocation,PageRegistrationPersonalDetails.dropDownSelectOption,rv.getCity());
 
-        sendKeys(PageRegistration.textFieldMobile, registrationValues.getMobileNumber());
+        sendKeys(PageRegistrationPersonalDetails.textFieldMobile, rv.getMobileNumber());
 
-        //actionsClick(PageRegistration.linkFileUpload);
+        //clickByActions(PageRegistrationPersonalDetails.linkFileUpload);
 
         //fileUpload("\\resume.pdf");
 
-        //waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistration.UploadSuccess));
+        //waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationPersonalDetails.UploadSuccess));
 
-        actionsClick(PageRegistration.buttonSubmit_1);
+        clickByActions(PageRegistrationPersonalDetails.buttonSubmit);
 
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistration.textFieldHighestQualification));
-
-        actionsSendKeys(PageRegistration.textFieldHighestQualification,registrationValues.getQualification_fewChars());
-        clickMultiSelect(PageRegistration.textFieldHighestQualification,registrationValues.getQualification());
-
-        actionsSendKeys(PageRegistration.textFieldSpecialisation, registrationValues.getSpecialization_fewChars());
-        clickMultiSelect(PageRegistration.textFieldSpecialisation, registrationValues.getSpecialization());
-
-        actionsSendKeys(PageRegistration.textFieldInstitute,registrationValues.getInstitute_fewchars());
-        clickMultiSelect(PageRegistration.textFieldInstitute,registrationValues.getInstitute());
-
-        actionsClick(PageRegistration.textFieldPassingYear);
-        clickMultiSelect(PageRegistration.textFieldPassingYear,registrationValues.getPassingYear());
-
-        actionsSendKeys(PageRegistration.textFieldSkills,registrationValues.getSkills_fewchars());
-        clickMultiSelect(PageRegistration.textFieldSkills,registrationValues.getSkills());
-
-        actionsClick(PageRegistration.buttonContinue_2);
-
-        sleep(1000);
-
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationEducationDetails.textFieldHighestQualification));
 
     }
 
-    public void success(RegistrationValues registrationValues) {
+    private void fillEducationDetails(RegistrationValues rv)  {
+
+
+        sendKeysByActions(PageRegistrationEducationDetails.textFieldHighestQualification,rv.getQualification_fewChars());
+        selectOption(PageRegistrationEducationDetails.textFieldHighestQualification,PageRegistrationEducationDetails.dropDownSelectOption,rv.getQualification());
+
+        sendKeysByActions(PageRegistrationEducationDetails.textFieldSpecialisation, rv.getSpecialization_fewChars());
+        selectOption(PageRegistrationEducationDetails.textFieldSpecialisation,PageRegistrationEducationDetails.dropDownSelectOption, rv.getSpecialization());
+
+        sendKeysByActions(PageRegistrationEducationDetails.textFieldInstitute,rv.getInstitute_fewChars());
+        selectOption(PageRegistrationEducationDetails.textFieldInstitute,PageRegistrationEducationDetails.dropDownSelectOption,rv.getInstitute());
+
+        clickByActions(PageRegistrationEducationDetails.textFieldPassingYear);
+        selectOption(PageRegistrationEducationDetails.textFieldPassingYear,PageRegistrationEducationDetails.dropDownSelectOption,rv.getPassingYear());
+
+        sendKeysByActions(PageRegistrationEducationDetails.textFieldSkills,rv.getSkills_fewChars());
+        selectOption(PageRegistrationEducationDetails.textFieldSkills,PageRegistrationEducationDetails.dropDownSelectOption,rv.getSkills());
+
+        clickByActions(PageRegistrationEducationDetails.buttonContinue);
+
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationPreferences.linkUploadPicture));
+
+    }
+
+
+    private void fillPreferences(RegistrationValues rv){
+
+
+        clickByActions(PageRegistrationPreferences.linkUploadPicture);
+
+        fileUpload("\\photo.jpg");
+
+        assertAttritbute(PageRegistrationPreferences.UploadSuccess,"src");
+
+
+        sendKeysByActions(PageRegistrationPreferences.textFieldLocation,rv.getCity_fewChars());
+        selectOption(PageRegistrationPreferences.textFieldLocation,PageRegistrationPreferences.dropDownSelectOption,rv.getCity());
+
+        sendKeysByActions(PageRegistrationPreferences.textFieldIndustry,rv.getIndustry_fewChars());
+        selectOption(PageRegistrationPreferences.textFieldIndustry,PageRegistrationPreferences.dropDownSelectOption,rv.getIndustry());
+
+        clickByActions(PageRegistrationPreferences.textFieldFunction);
+        selectOption(PageRegistrationPreferences.textFieldFunction,PageRegistrationPreferences.dropDownSelectOption,rv.getIndustry_fewChars());
+
+
+        sendKeysByActions(PageRegistrationPreferences.textFieldRole,rv.getRole_fewChars());
+        selectOption(PageRegistrationPreferences.textFieldRole,PageRegistrationPreferences.dropDownSelectOption,rv.getRole());
+
+        radioButton(PageRegistrationPreferences.RadioButton,rv.getEmploymentType());
+
+        radioButton(PageRegistrationPreferences.RadioButton,rv.getJobType());
+
+        radioButton(PageRegistrationPreferences.RadioButton,rv.getGender());
+
+        clickByActions(PageRegistrationPreferences.textFieldMaritalStatus);
+        selectOption(PageRegistrationPreferences.textFieldMaritalStatus,PageRegistrationPreferences.dropDownSelectOption,rv.getMarital_status());
+
+
+        clickByActions(PageRegistrationPreferences.buttonSubmit);
+
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageUserHome.logoProfile));
+
+    }
+
+
+    public void deleteAccount(RegistrationValues rv){
+
+        moveByActions(PageUserHome.logoProfile);
+
+        clickByActions(PageUserHome.linkSettings);
+
+        sendKeysByActions(PageUserHome.textFieldllogin,rv.getEmail());
+
+        sendKeysByActions(PageUserHome.textFieldPassword,rv.getPassword());
+
+        clickByActions(PageUserHome.buttonSubmit);
+
+        clickByActions(PageUserHome.linkDeleteAccount);
+
+        clickByActions(PageUserHome.buttondeleteAccount);
+        
+    }
+
+    public void success(RegistrationValues rv) {
 
         try {
 
-            fill(registrationValues);
+            fillPersonalDetails(rv);
 
-            sleep(3000);
+            fillEducationDetails(rv);
+
+            fillPreferences(rv);
+
+            deleteAccount(rv);
 
         } catch (Throwable t) {
 
@@ -73,11 +142,11 @@ public class Registration extends Browser {
         }
     }
 
-    public void failure(RegistrationValues registrationValues, String message) {
+    public void failure(RegistrationValues rv, String message) {
 
         try {
 
-            fill(registrationValues);
+            fillPersonalDetails(rv);
             sleep(2000);
 
         } catch (Throwable t) {

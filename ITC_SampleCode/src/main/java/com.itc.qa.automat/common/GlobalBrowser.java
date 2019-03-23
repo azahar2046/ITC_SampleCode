@@ -5,10 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 
 import java.awt.*;
@@ -17,7 +15,6 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-
 
 public class GlobalBrowser {
 
@@ -59,16 +56,31 @@ public class GlobalBrowser {
         }
     }
 
+    private void escapeTimeoutException(Throwable t) {
 
-    protected void waitUntil(ExpectedCondition<? extends Object> expectedCondition) {
+        if (t instanceof TimeoutException) {
 
-        Function<WebDriver, ? extends Object> function = (WebDriver driver) -> {
+            try {
 
-            return expectedCondition.apply(driver);
-        };
+                Robot robot = new Robot();
+                robot.keyPress(KeyEvent.VK_ESCAPE);
+                robot.keyRelease(KeyEvent.VK_ESCAPE);
 
-        WebDriverWait wait = new WebDriverWait(webdriver, 40);
-        wait.until(function);
+            } catch (AWTException e) {
+
+                throw new RuntimeException(e);
+            }
+
+        } else {
+
+            throw new RuntimeException(t);
+        }
+    }
+
+    protected void waitUntil(ExpectedCondition<?> expectedCondition) {
+
+        WebDriverWait wait = new WebDriverWait(webdriver, 30);
+        wait.until((Function<WebDriver, ?>) expectedCondition);
     }
 
     protected void openUrl(String url) {
@@ -79,9 +91,10 @@ public class GlobalBrowser {
 
         } catch (Throwable t) {
 
-            throw new RuntimeException(t);
+            escapeTimeoutException(t);
         }
     }
+
 
     protected void click(By by) {
 
@@ -93,41 +106,8 @@ public class GlobalBrowser {
 
         } catch (Throwable t) {
 
-            throw new RuntimeException(t);
+            escapeTimeoutException(t);
         }
-    }
-
-    protected void clickMultiSelect(By by, String text) {
-
-        try {
-
-            sleep(100);
-
-            List<WebElement> webElementList = webdriver.findElement(by).findElements(By.xpath("//*[contains(@class,'multiselect__content-wrapper')]/ul/li"));
-
-            for (WebElement webElement : webElementList) {
-
-                String text_1 = webElement.getText();
-
-                if (text_1.contains(text)) {
-
-                    actionsClick(webElement);
-
-                    break;
-                }
-
-            }
-
-        } catch (Throwable t) {
-
-            throw new RuntimeException(t);
-        }
-    }
-
-    protected void radioButton(By by, String text){
-
-        webdriver.findElement(By.xpath("//span[text()='"+text+"']")).findElement(by).click();
-
     }
 
     protected void sendKeys(By by, String keys) {
@@ -138,29 +118,94 @@ public class GlobalBrowser {
         textfield.sendKeys(keys);
     }
 
-    protected void selectDropdownByVisibleText(By by, String visibleText) {
 
-        sleep(100);
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(by));
-        Select dropdown = new Select(webdriver.findElement(by));
-        dropdown.selectByVisibleText(visibleText);
+    protected void selectOption(By locator_1, By locator_2, String text) {
+
+        sleep(5000);
+
+        List<WebElement> webElementList = webdriver.findElement(locator_1).findElements(locator_2);
+
+        for (WebElement webElement : webElementList) {
+
+            String text_1 = webElement.getText();
+
+            if (text_1.contains(text)){
+
+                clickByActions(webElement);
+
+                break;
+            }
+
+        }
     }
 
-    protected void selectDropdownByValue(By by, String value) {
 
-        sleep(100);
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(by));
-        Select dropdown = new Select(webdriver.findElement(by));
-        dropdown.selectByValue(value);
+    protected void radioButton(By by, String text) {
+
+        webdriver.findElement(By.xpath("//span[text()='" + text + "']")).findElement(by).click();
+
     }
 
-    protected void selectDropdownByIndex(By by, Integer index) {
+    protected void sendKeysByActions(By by, String text) {
 
-        sleep(100);
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(by));
-        Select dropdown = new Select(webdriver.findElement(by));
-        dropdown.selectByIndex(index);
+        try {
+
+            sleep(100);
+            Actions actions = new Actions(webdriver);
+            actions.moveToElement(webdriver.findElement(by)).click().sendKeys(text).perform();
+
+        } catch (Throwable t) {
+
+            escapeTimeoutException(t);
+        }
+
     }
+
+    protected void clickByActions(By by) {
+
+        try {
+
+            sleep(100);
+            Actions actions = new Actions(webdriver);
+            actions.moveToElement(webdriver.findElement(by)).click().perform();
+
+        } catch (Throwable t) {
+
+            throw new RuntimeException(t);
+        }
+
+    }
+
+    protected void clickByActions(WebElement webElement) {
+
+        try {
+
+            sleep(100);
+            Actions actions = new Actions(webdriver);
+            actions.moveToElement(webElement).click().perform();
+
+        } catch (Throwable t) {
+
+            throw new RuntimeException(t);
+        }
+
+    }
+
+    protected void moveByActions(By by) {
+
+        try {
+
+            sleep(100);
+            Actions actions = new Actions(webdriver);
+            actions.moveToElement(webdriver.findElement(by)).perform();
+
+        } catch (Throwable t) {
+
+            throw new RuntimeException(t);
+        }
+
+    }
+
 
     protected void sleep(Integer l) {
 
@@ -175,33 +220,12 @@ public class GlobalBrowser {
     }
 
 
-    protected void actionsSendKeys(By by, String text) {
-
-        Actions actions = new Actions(webdriver);
-        actions.moveToElement(webdriver.findElement(by)).click().sendKeys(text).perform();
-        sleep(1000);
-    }
-
-    protected void actionsClick(By by) {
-
-        Actions actions = new Actions(webdriver);
-        actions.moveToElement(webdriver.findElement(by)).click().perform();
-        sleep(1000);
-    }
-
-    protected void actionsClick(WebElement webElement) {
-
-        Actions actions = new Actions(webdriver);
-        actions.moveToElement(webElement).click().perform();
-        sleep(1000);
-    }
-
     protected void fileUpload(String file) {
 
         StringSelection attachment = new StringSelection(userDir + file);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(attachment, null);
 
-        sleep(1000);
+        sleep(100);
 
         try {
             Robot robot = new Robot();
@@ -212,9 +236,15 @@ public class GlobalBrowser {
 
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
+
         } catch (AWTException e) {
             e.printStackTrace();
         }
 
+    }
+
+    protected void assertAttritbute(By by, String attribute) {
+
+        Assert.assertTrue(!webdriver.findElement(by).getAttribute(attribute).isEmpty());
     }
 }

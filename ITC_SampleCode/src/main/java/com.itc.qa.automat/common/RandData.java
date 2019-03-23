@@ -24,7 +24,7 @@ public class RandData {
 
     public static String getRandomMail() {
 
-        return "qa_automat_" + getRandomIntAsString(9999, 1000)+"@gmail.com";
+        return "qa_automat_" + getRandomIntAsString(99999999, 10000000)+"@gmail.com";
     }
 
     private static String getRandomString(String chars, Integer length) {
