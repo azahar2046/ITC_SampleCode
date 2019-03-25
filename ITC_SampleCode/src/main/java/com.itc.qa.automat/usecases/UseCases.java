@@ -1,6 +1,8 @@
 package com.itc.qa.automat.usecases;
 
-import com.itc.qa.automat.values.RegistrationValues;
+import com.itc.qa.automat.values.EducationDetailsValues;
+import com.itc.qa.automat.values.PersonalDetailsValues;
+import com.itc.qa.automat.values.PreferencesValues;
 
 public class UseCases {
 
@@ -8,9 +10,13 @@ public class UseCases {
 
         Registration registration = new Registration();
 
-        RegistrationValues registrationValues = new RegistrationValues();
+        PersonalDetailsValues pd = new PersonalDetailsValues();
 
-        registration.success(registrationValues);
+        EducationDetailsValues ed = new EducationDetailsValues();
+
+        PreferencesValues pv = new PreferencesValues();
+
+        registration.success(pd,ed,pv);
 
     }
 

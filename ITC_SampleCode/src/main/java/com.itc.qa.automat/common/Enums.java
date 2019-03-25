@@ -21,7 +21,7 @@ public class Enums {
         }
     }
 
-    public enum employmentType{
+    public enum EmploymentType{
 
         Both("Both"),
         Full_time("Full time"),
@@ -29,7 +29,26 @@ public class Enums {
 
         private final String visibleText;
 
-        private employmentType(String visibleText) {
+        private EmploymentType(String visibleText) {
+
+            this.visibleText = visibleText;
+        }
+
+        public String getVisibleText() {
+
+            return visibleText;
+        }
+    }
+
+    public enum EducationType{
+
+        Correspondence("Correspondence"),
+        Full_time("Full time"),
+        Part_time("Part time");
+
+        private final String visibleText;
+
+        private EducationType(String visibleText) {
 
             this.visibleText = visibleText;
         }

@@ -7,8 +7,9 @@ public class TypicalUseCases {
 
     private UseCases useCases = new UseCases();
 
+
     @Test
-    public void solveRegistrationSuccess(){
+    public void solveRegistrationSuccess() {
 
         useCases.solveRegistrationSuccess();
     }

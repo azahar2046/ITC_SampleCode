@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-import org.testng.Assert;
 
 
 import java.awt.*;
@@ -18,10 +17,10 @@ import java.util.function.Function;
 
 public class GlobalBrowser {
 
-    protected final WebDriver webdriver;
-    private static String userDir;
+    private WebDriver webdriver;
+    private String userDir;
 
-    protected GlobalBrowser() {
+    private void setUpWebDriver() {
 
         try {
 
@@ -54,9 +53,10 @@ public class GlobalBrowser {
 
             throw new RuntimeException(e);
         }
+
     }
 
-    private void escapeTimeoutException(Throwable t) {
+    private  void escapeTimeoutException(Throwable t) {
 
         if (t instanceof TimeoutException) {
 
@@ -77,15 +77,24 @@ public class GlobalBrowser {
         }
     }
 
-    protected void waitUntil(ExpectedCondition<?> expectedCondition) {
+    public  void waitUntil(ExpectedCondition<?> expectedCondition) {
 
         WebDriverWait wait = new WebDriverWait(webdriver, 30);
         wait.until((Function<WebDriver, ?>) expectedCondition);
     }
 
-    protected void openUrl(String url) {
+    public  void waitUntil(ExpectedCondition<?> expectedCondition, int timeout) {
+
+        WebDriverWait wait = new WebDriverWait(webdriver, timeout);
+        wait.until((Function<WebDriver, ?>) expectedCondition);
+    }
+
+
+    public void openUrl(String url) {
 
         try {
+
+            setUpWebDriver();
 
             webdriver.get(url);
 
@@ -96,57 +105,7 @@ public class GlobalBrowser {
     }
 
 
-    protected void click(By by) {
-
-        try {
-
-            sleep(100);
-            waitUntil(ExpectedConditions.elementToBeClickable(by));
-            webdriver.findElement(by).click();
-
-        } catch (Throwable t) {
-
-            escapeTimeoutException(t);
-        }
-    }
-
-    protected void sendKeys(By by, String keys) {
-
-        sleep(100);
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(by));
-        WebElement textfield = webdriver.findElement(by);
-        textfield.sendKeys(keys);
-    }
-
-
-    protected void selectOption(By locator_1, By locator_2, String text) {
-
-        sleep(5000);
-
-        List<WebElement> webElementList = webdriver.findElement(locator_1).findElements(locator_2);
-
-        for (WebElement webElement : webElementList) {
-
-            String text_1 = webElement.getText();
-
-            if (text_1.contains(text)){
-
-                clickByActions(webElement);
-
-                break;
-            }
-
-        }
-    }
-
-
-    protected void radioButton(By by, String text) {
-
-        webdriver.findElement(By.xpath("//span[text()='" + text + "']")).findElement(by).click();
-
-    }
-
-    protected void sendKeysByActions(By by, String text) {
+    public  void sendKeys(By by, String text) {
 
         try {
 
@@ -161,7 +120,7 @@ public class GlobalBrowser {
 
     }
 
-    protected void clickByActions(By by) {
+    public  void click(By by) {
 
         try {
 
@@ -176,7 +135,7 @@ public class GlobalBrowser {
 
     }
 
-    protected void clickByActions(WebElement webElement) {
+    public  void click(WebElement webElement) {
 
         try {
 
@@ -191,23 +150,137 @@ public class GlobalBrowser {
 
     }
 
-    protected void moveByActions(By by) {
 
-        try {
+    public void selectOption(String text) {
+
+        Actions actions = new Actions(webdriver);
+
+        WebElement webElement = webdriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]/ancestor::li"));
+
+        int i = 0;
+
+        while (!webElement.isEnabled()) {
+
+            i++;
+
+            if (i > 15) {
+
+                actions.sendKeys(Keys.ARROW_DOWN).perform();
+
+                sleep(100);
+
+                break;
+            }
+
+        }
+
+
+
+        click(webElement);
+    }
+
+    public void selectOptionExacttext(String text) {
+
+        Actions actions = new Actions(webdriver);
+
+        WebElement webElement = webdriver.findElement(By.xpath("//span[text()='" + text + "']/ancestor::li"));
+
+        int i = 0;
+
+        while (!webElement.isEnabled()) {
+
+            i++;
+
+            if (i > 15) {
+
+                actions.sendKeys(Keys.ARROW_DOWN).perform();
+
+                sleep(100);
+
+                break;
+            }
+
+        }
+
+
+        click(webElement);
+    }
+
+
+    public  void radioButton(By by, String text) {
+
+        WebElement webElement = webdriver.findElement(by).findElement(By.xpath("//span[text()='" + text + "']"));
+
+        click(webElement);
+    }
+
+
+
+    public void calender(String date_text, String month_text, String year_text ){
+
+        WebElement webElement_year = webdriver.findElement(By.xpath("//*[contains(@class,'cell year')][text()='"+year_text+"']"));
+
+        WebElement webElement_month = webdriver.findElement(By.xpath("//*[contains(@class,'cell month')][text()='"+month_text+"']"));
+
+        WebElement webElement_date = webdriver.findElement(By.xpath("//*[contains(@class,'cell day')][text()='"+date_text+"']"));
+
+        int i= 15;
+
+        while (!webElement_year.isDisplayed()){
 
             sleep(100);
-            Actions actions = new Actions(webdriver);
-            actions.moveToElement(webdriver.findElement(by)).perform();
 
-        } catch (Throwable t) {
+            i++;
 
-            throw new RuntimeException(t);
+            if(i>15){
+                break;
+            }
         }
+
+        click(webElement_year);
+
+        while (!webElement_month.isDisplayed()){
+
+            sleep(100);
+
+            i++;
+
+            if(i>15){
+                break;
+            }
+        }
+
+        click(webElement_month);
+
+        while (!webElement_date.isDisplayed()){
+
+            sleep(100);
+
+            i++;
+
+            if(i>15){
+                break;
+            }
+        }
+
+        click(webElement_date);
 
     }
 
 
-    protected void sleep(Integer l) {
+
+    public void scrollToView(By by){
+
+        String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
+                + "var elementTop = arguments[0].getBoundingClientRect().top;"
+                + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
+
+
+        ((JavascriptExecutor) webdriver).executeScript(scrollElementIntoMiddle, webdriver.findElement(by));
+        sleep(2000);
+    }
+
+    public  void sleep(Integer l) {
 
         try {
 
@@ -220,12 +293,12 @@ public class GlobalBrowser {
     }
 
 
-    protected void fileUpload(String file) {
+    public void fileUpload(String file) {
 
         StringSelection attachment = new StringSelection(userDir + file);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(attachment, null);
 
-        sleep(100);
+        sleep(1000);
 
         try {
             Robot robot = new Robot();
@@ -243,8 +316,20 @@ public class GlobalBrowser {
 
     }
 
-    protected void assertAttritbute(By by, String attribute) {
+    public void enterScriptText(By by, String text){
 
-        Assert.assertTrue(!webdriver.findElement(by).getAttribute(attribute).isEmpty());
+        JavascriptExecutor js = (JavascriptExecutor)webdriver;
+
+        js.executeScript("arguments[0].value='"+text+"'",webdriver.findElement(by));
     }
+
+    public  void quitBrowser() {
+
+        webdriver.quit();
+
+    }
+
+
+
+
 }

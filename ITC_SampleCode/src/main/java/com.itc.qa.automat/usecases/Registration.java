@@ -1,136 +1,111 @@
 package com.itc.qa.automat.usecases;
 
-import com.itc.qa.automat.common.Browser;
 import com.itc.qa.automat.pages.PageRegistrationEducationDetails;
 import com.itc.qa.automat.pages.PageRegistrationPersonalDetails;
 import com.itc.qa.automat.pages.PageRegistrationPreferences;
-import com.itc.qa.automat.pages.PageUserHome;
-import com.itc.qa.automat.values.RegistrationValues;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import com.itc.qa.automat.values.EducationDetailsValues;
+import com.itc.qa.automat.values.PersonalDetailsValues;
+import com.itc.qa.automat.values.PreferencesValues;
 
 
-public class Registration extends Browser {
+public class Registration {
 
-    private void fillPersonalDetails(RegistrationValues rv){
+    private PageRegistrationPersonalDetails personalDetails = new PageRegistrationPersonalDetails();
 
-        goToPageRegistration();
-        sendKeys(PageRegistrationPersonalDetails.textFieldName, rv.getName());
+    private PageRegistrationEducationDetails educationDetails;
 
-        sendKeys(PageRegistrationPersonalDetails.textFieldEmail, rv.getEmail());
+    private PageRegistrationPreferences preferences;
 
-        sendKeys(PageRegistrationPersonalDetails.textFieldPassword, rv.getPassword());
+    private void fillPersonalDetails(PersonalDetailsValues rv) {
 
-        sendKeysByActions(PageRegistrationPersonalDetails.textFieldCurrentLocation,rv.getCity_fewChars());
-        selectOption(PageRegistrationPersonalDetails.textFieldCurrentLocation,PageRegistrationPersonalDetails.dropDownSelectOption,rv.getCity());
+        personalDetails.clickLinkFresher();
 
-        sendKeys(PageRegistrationPersonalDetails.textFieldMobile, rv.getMobileNumber());
+        personalDetails.enterName(rv.getName());
 
-        //clickByActions(PageRegistrationPersonalDetails.linkFileUpload);
+        personalDetails.enterEmail(rv.getEmail());
 
-        //fileUpload("\\resume.pdf");
+        personalDetails.enterPassword(rv.getPassword());
 
-        //waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationPersonalDetails.UploadSuccess));
+        personalDetails.enterCurrentLocation(rv.getCity_fewChars(), rv.getCity());
 
-        clickByActions(PageRegistrationPersonalDetails.buttonSubmit);
+        personalDetails.enterMobile(rv.getMobileNumber());
 
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationEducationDetails.textFieldHighestQualification));
+        personalDetails.uploadResume("\\resume.pdf");
 
-    }
+        personalDetails.waitUntilUploadSuccess();
 
-    private void fillEducationDetails(RegistrationValues rv)  {
-
-
-        sendKeysByActions(PageRegistrationEducationDetails.textFieldHighestQualification,rv.getQualification_fewChars());
-        selectOption(PageRegistrationEducationDetails.textFieldHighestQualification,PageRegistrationEducationDetails.dropDownSelectOption,rv.getQualification());
-
-        sendKeysByActions(PageRegistrationEducationDetails.textFieldSpecialisation, rv.getSpecialization_fewChars());
-        selectOption(PageRegistrationEducationDetails.textFieldSpecialisation,PageRegistrationEducationDetails.dropDownSelectOption, rv.getSpecialization());
-
-        sendKeysByActions(PageRegistrationEducationDetails.textFieldInstitute,rv.getInstitute_fewChars());
-        selectOption(PageRegistrationEducationDetails.textFieldInstitute,PageRegistrationEducationDetails.dropDownSelectOption,rv.getInstitute());
-
-        clickByActions(PageRegistrationEducationDetails.textFieldPassingYear);
-        selectOption(PageRegistrationEducationDetails.textFieldPassingYear,PageRegistrationEducationDetails.dropDownSelectOption,rv.getPassingYear());
-
-        sendKeysByActions(PageRegistrationEducationDetails.textFieldSkills,rv.getSkills_fewChars());
-        selectOption(PageRegistrationEducationDetails.textFieldSkills,PageRegistrationEducationDetails.dropDownSelectOption,rv.getSkills());
-
-        clickByActions(PageRegistrationEducationDetails.buttonContinue);
-
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageRegistrationPreferences.linkUploadPicture));
+        educationDetails = personalDetails.clickSubmit();
 
     }
 
+    private void fillEducationDetails(EducationDetailsValues rv) {
 
-    private void fillPreferences(RegistrationValues rv){
+        educationDetails.waitUntilElementVisible();
 
+        educationDetails.enterHighestQualification(rv.getQualification_fewChars(), rv.getQualification());
 
-        clickByActions(PageRegistrationPreferences.linkUploadPicture);
+        educationDetails.enterSpecialisation(rv.getSpecialization_fewChars(), rv.getSpecialization());
 
-        fileUpload("\\photo.jpg");
+        educationDetails.enterInstitute(rv.getInstitute_fewChars(), rv.getInstitute());
 
-        assertAttritbute(PageRegistrationPreferences.UploadSuccess,"src");
+        educationDetails.selectEducationType(rv.getEducationType());
 
+        educationDetails.enterPassingYear(rv.getPassingYear());
 
-        sendKeysByActions(PageRegistrationPreferences.textFieldLocation,rv.getCity_fewChars());
-        selectOption(PageRegistrationPreferences.textFieldLocation,PageRegistrationPreferences.dropDownSelectOption,rv.getCity());
+        educationDetails.enterSkills(rv.getSkills_fewChars(), rv.getSkills());
 
-        sendKeysByActions(PageRegistrationPreferences.textFieldIndustry,rv.getIndustry_fewChars());
-        selectOption(PageRegistrationPreferences.textFieldIndustry,PageRegistrationPreferences.dropDownSelectOption,rv.getIndustry());
-
-        clickByActions(PageRegistrationPreferences.textFieldFunction);
-        selectOption(PageRegistrationPreferences.textFieldFunction,PageRegistrationPreferences.dropDownSelectOption,rv.getIndustry_fewChars());
-
-
-        sendKeysByActions(PageRegistrationPreferences.textFieldRole,rv.getRole_fewChars());
-        selectOption(PageRegistrationPreferences.textFieldRole,PageRegistrationPreferences.dropDownSelectOption,rv.getRole());
-
-        radioButton(PageRegistrationPreferences.RadioButton,rv.getEmploymentType());
-
-        radioButton(PageRegistrationPreferences.RadioButton,rv.getJobType());
-
-        radioButton(PageRegistrationPreferences.RadioButton,rv.getGender());
-
-        clickByActions(PageRegistrationPreferences.textFieldMaritalStatus);
-        selectOption(PageRegistrationPreferences.textFieldMaritalStatus,PageRegistrationPreferences.dropDownSelectOption,rv.getMarital_status());
-
-
-        clickByActions(PageRegistrationPreferences.buttonSubmit);
-
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(PageUserHome.logoProfile));
+        preferences = educationDetails.clickButtonContinue();
 
     }
 
 
-    public void deleteAccount(RegistrationValues rv){
+    private void fillPreferences(PreferencesValues rv)  {
 
-        moveByActions(PageUserHome.logoProfile);
+        preferences.uploadPhoto("\\photo.jpg");
 
-        clickByActions(PageUserHome.linkSettings);
+        preferences.enterLocation(rv.getCity_fewChars(), rv.getCity());
 
-        sendKeysByActions(PageUserHome.textFieldllogin,rv.getEmail());
+        preferences.enterIndustry(rv.getIndustry_fewChars(), rv.getIndustry());
 
-        sendKeysByActions(PageUserHome.textFieldPassword,rv.getPassword());
+        preferences.enterFunction(rv.getFunction());
 
-        clickByActions(PageUserHome.buttonSubmit);
+        preferences.enterRole(rv.getRole_fewChars(), rv.getRole());
 
-        clickByActions(PageUserHome.linkDeleteAccount);
+        preferences.selectJobType(rv.getJobType());
 
-        clickByActions(PageUserHome.buttondeleteAccount);
-        
+        preferences.selectEmploymentType(rv.getEmploymentType());
+
+        preferences.selectGender(rv.getGender());
+
+        preferences.enterSkillData(rv.getSkill());
+
+        preferences.selectBirth(rv.getBirthDate(),rv.getBirhtMonth(),rv.getBirthYear());
+
+        preferences.enterMaritalStatus(rv.getMarital_status());
+
+        preferences.enterLanguage(rv.getLang_fewChars(),rv.getLang(),rv.getLang_level());
+
+        preferences.enterAllowedCountry(rv.getAllowedCountry_few(),rv.getAllowedCountry());
+
+        preferences.enterCaste(rv.getCaste());
+
+        preferences.clickSubmit();
+
+        preferences.waitUntilElementVisible();
+
     }
 
-    public void success(RegistrationValues rv) {
+
+    public void success(PersonalDetailsValues pd, EducationDetailsValues ed, PreferencesValues pv) {
 
         try {
 
-            fillPersonalDetails(rv);
+            fillPersonalDetails(pd);
 
-            fillEducationDetails(rv);
+            fillEducationDetails(ed);
 
-            fillPreferences(rv);
+            fillPreferences(pv);
 
-            deleteAccount(rv);
 
         } catch (Throwable t) {
 
@@ -138,25 +113,9 @@ public class Registration extends Browser {
 
         } finally {
 
-            webdriver.quit();
+            preferences.closeBrowser();
         }
     }
 
-    public void failure(RegistrationValues rv, String message) {
-
-        try {
-
-            fillPersonalDetails(rv);
-            sleep(2000);
-
-        } catch (Throwable t) {
-
-            throw new RuntimeException(t);
-
-        } finally {
-
-            webdriver.quit();
-        }
-    }
 
 }

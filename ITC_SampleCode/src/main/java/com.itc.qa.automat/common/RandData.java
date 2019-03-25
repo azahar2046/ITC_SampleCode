@@ -5,14 +5,15 @@ import java.util.Random;
 
 public class RandData {
 
-    public static Integer getRandomInt(Integer range, Integer minimum) {
+    private static Integer getRandomInt(Integer range, Integer minimum) {
 
         Random random = new SecureRandom();
 
         return random.nextInt(range - minimum) + minimum;
+
     }
 
-    public static String getRandomIntAsString(Integer range, Integer minimum) {
+    private static String getRandomIntAsString(Integer range, Integer minimum) {
 
         return String.valueOf(getRandomInt(range, minimum));
     }
@@ -27,7 +28,7 @@ public class RandData {
         return "qa_automat_" + getRandomIntAsString(99999999, 10000000)+"@gmail.com";
     }
 
-    private static String getRandomString(String chars, Integer length) {
+    private static String getString(String chars, Integer length) {
 
         if(length <= 0) {
 
@@ -44,9 +45,9 @@ public class RandData {
         return builder.toString();
     }
 
-    public static String getRandomStringWithoutAdditionalCharacters(Integer length) {
+    public static String getRandomString(Integer length) {
 
-        return getRandomString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", length);
+        return getString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", length);
     }
 
 }
