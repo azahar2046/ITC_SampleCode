@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -174,8 +173,6 @@ public class GlobalBrowser {
 
         }
 
-
-
         click(webElement);
     }
 
@@ -202,7 +199,6 @@ public class GlobalBrowser {
 
         }
 
-
         click(webElement);
     }
 
@@ -214,70 +210,14 @@ public class GlobalBrowser {
         click(webElement);
     }
 
-
-
-    public void calender(String date_text, String month_text, String year_text ){
-
-        WebElement webElement_year = webdriver.findElement(By.xpath("//*[contains(@class,'cell year')][text()='"+year_text+"']"));
-
-        WebElement webElement_month = webdriver.findElement(By.xpath("//*[contains(@class,'cell month')][text()='"+month_text+"']"));
-
-        WebElement webElement_date = webdriver.findElement(By.xpath("//*[contains(@class,'cell day')][text()='"+date_text+"']"));
-
-        int i= 15;
-
-        while (!webElement_year.isDisplayed()){
-
-            sleep(100);
-
-            i++;
-
-            if(i>15){
-                break;
-            }
-        }
-
-        click(webElement_year);
-
-        while (!webElement_month.isDisplayed()){
-
-            sleep(100);
-
-            i++;
-
-            if(i>15){
-                break;
-            }
-        }
-
-        click(webElement_month);
-
-        while (!webElement_date.isDisplayed()){
-
-            sleep(100);
-
-            i++;
-
-            if(i>15){
-                break;
-            }
-        }
-
-        click(webElement_date);
-
-    }
-
-
-
     public void scrollToView(By by){
 
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
                 + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
 
-
         ((JavascriptExecutor) webdriver).executeScript(scrollElementIntoMiddle, webdriver.findElement(by));
-        sleep(2000);
+        sleep(1000);
     }
 
     public  void sleep(Integer l) {

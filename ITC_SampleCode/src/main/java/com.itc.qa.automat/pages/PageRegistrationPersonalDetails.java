@@ -22,7 +22,6 @@ public class PageRegistrationPersonalDetails {
     public void clickLinkFresher() {
 
         globalBrowser.openUrl("https://www.monsterindia.com/seeker/registration");
-
         globalBrowser.click(linkFresher);
     }
 
@@ -31,7 +30,6 @@ public class PageRegistrationPersonalDetails {
         globalBrowser.sendKeys(textFieldName, name);
 
     }
-
 
     public void enterEmail(String email) {
 
@@ -48,7 +46,6 @@ public class PageRegistrationPersonalDetails {
     public void enterCurrentLocation(String location_fewChars, String location) {
 
         globalBrowser.sendKeys(textFieldCurrentLocation, location_fewChars);
-
         globalBrowser.selectOption(location);
 
     }
@@ -62,7 +59,6 @@ public class PageRegistrationPersonalDetails {
     public void uploadResume(String file) {
 
         globalBrowser.click(linkFileUpload);
-
         globalBrowser.fileUpload(file);
 
     }
@@ -76,11 +72,9 @@ public class PageRegistrationPersonalDetails {
     public PageRegistrationEducationDetails clickSubmit() {
 
         globalBrowser.click(buttonSubmit);
-
         return new PageRegistrationEducationDetails(globalBrowser);
 
     }
-
 
     public PageRegistrationPersonalDetails() {
 

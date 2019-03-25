@@ -14,7 +14,7 @@ public class PersonalDetailsValues {
 
     public PersonalDetailsValues() {
 
-        this.name = RandData.getRandomString(5) + " " + RandData.getRandomString(5);
+        this.name = "John Walker";
         this.email = RandData.getRandomMail();
         this.password = "123456789";
         this.mobileNumber = RandData.getRandomMobileNumber();

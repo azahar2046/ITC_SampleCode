@@ -36,43 +36,31 @@ public class PageRegistrationPreferences {
     public void uploadPhoto(String file) {
 
         globalBrowser.click(linkUploadPicture);
-
         globalBrowser.fileUpload(file);
-
         globalBrowser.sleep(4000);
-
     }
 
     public void enterLocation(String few_Chars, String text) {
 
         globalBrowser.sendKeys(textFieldLocation, few_Chars);
-
         globalBrowser.selectOption(text);
-
     }
 
     public void enterIndustry(String few_Chars, String text) {
 
         globalBrowser.sendKeys(textFieldIndustry, few_Chars);
-
         globalBrowser.selectOption(text);
-
     }
 
     public void enterRole(String few_Chars, String text) {
 
         globalBrowser.sendKeys(textFieldRole, few_Chars);
-
         globalBrowser.selectOption(text);
-
     }
 
     public void enterFunction(String text) {
 
         globalBrowser.click(textFieldFunction);
-
-        globalBrowser.sleep(2000);
-
         globalBrowser.selectOptionExacttext(text);
 
     }
@@ -91,12 +79,13 @@ public class PageRegistrationPreferences {
 
     public void enterSkillData(String[] skill_few) {
 
+        globalBrowser.scrollToView(textFieldBirth);
         globalBrowser.sendKeys(textFieldSkill, skill_few[0]);
         globalBrowser.selectOption(skill_few[1]);
 
         globalBrowser.sendKeys(textFieldVersion,skill_few[2]);
-
         globalBrowser.click(textFieldLastUsed);
+
         globalBrowser.selectOption(skill_few[3]);
 
         globalBrowser.click(textFieldYears);
@@ -104,10 +93,7 @@ public class PageRegistrationPreferences {
 
     }
 
-
     public void selectGender(String text) {
-
-        globalBrowser.scrollToView(radioButtonGender);
 
         globalBrowser.radioButton(radioButtonGender, text);
 
@@ -116,7 +102,6 @@ public class PageRegistrationPreferences {
     public void enterMaritalStatus(String text) {
 
         globalBrowser.click(textFieldMaritalStatus);
-
         globalBrowser.selectOption(text);
 
     }
@@ -124,7 +109,6 @@ public class PageRegistrationPreferences {
     public void enterAllowedCountry(String few, String text) {
 
         globalBrowser.sendKeys(textFieldAllowedCountry,few);
-
         globalBrowser.selectOption(text);
 
     }
@@ -132,7 +116,6 @@ public class PageRegistrationPreferences {
     public void enterCaste(String text) {
 
         globalBrowser.click(textFieldCaste);
-
         globalBrowser.selectOption(text);
 
     }
@@ -140,6 +123,7 @@ public class PageRegistrationPreferences {
     public void enterLanguage(String few_chars, String text_lang, String[] text) {
 
 
+        globalBrowser.scrollToView(textFieldAllowedCountry);
         globalBrowser.sendKeys(textFieldLanguage, few_chars);
         globalBrowser.selectOptionExacttext(text_lang);
 
@@ -147,8 +131,6 @@ public class PageRegistrationPreferences {
 
         globalBrowser.click(textFieldLanguageLevel);
         globalBrowser.selectOptionExacttext(text[1]);
-
-        System.out.println(text[0]);
 
     }
 
@@ -160,6 +142,8 @@ public class PageRegistrationPreferences {
 
     public void waitUntilElementVisible() {
 
+        globalBrowser.sleep(3000);
+
         globalBrowser.waitUntil(ExpectedConditions.visibilityOfElementLocated(UpdateProfile), 60);
 
     }
@@ -167,7 +151,6 @@ public class PageRegistrationPreferences {
     public void selectBirth(String date, String month, String year) {
 
         String text = year+"-"+month+"-"+date;
-
         globalBrowser.enterScriptText(textFieldBirth,text);
 
     }
