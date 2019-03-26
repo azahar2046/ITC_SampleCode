@@ -11,11 +11,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
+            <state relative-caret-position="17">
               <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/EducationDetailsValues.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PreferencesValues.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1065">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPreferences.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,16 +110,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/Enums.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/UseCases.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/EducationDetailsValues.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PersonalDetailsValues.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPersonalDetails.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationEducationDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PreferencesValues.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPreferences.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/RetryAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/MyTransformer.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/EducationDetailsValues.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PreferencesValues.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPreferences.java" />
       </list>
     </option>
   </component>
@@ -89,6 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,7 +221,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,9 +302,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.25 at 20h 50m 28s.xml">
-      <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.25 at 21h 59m 57s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
@@ -287,6 +329,9 @@
     <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.25 at 23h 27m 58s.xml">
       <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="TypicalUseCases_solveRegistrationSuccess - 2019.03.26 at 11h 41m 09s.xml">
+      <configuration name="TypicalUseCases.solveRegistrationSuccess" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -299,14 +344,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3214826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3267776" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32843137" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -467,13 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/EducationDetailsValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/Enums.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -505,26 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PreferencesValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="52" column="82" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1780">
-          <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -569,23 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PersonalDetailsValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/common/GlobalBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -598,8 +600,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/usecases/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
+        <state relative-caret-position="17">
           <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PersonalDetailsValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/EducationDetailsValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/values/PreferencesValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1065">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.itc.qa.automat/pages/PageRegistrationPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/itc/qa/automat/TypicalUseCases.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

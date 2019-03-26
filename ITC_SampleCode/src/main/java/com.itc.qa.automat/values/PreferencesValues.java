@@ -50,7 +50,7 @@ public class PreferencesValues {
         this.allowedCountry_few = "In";
         this.allowedCountry = "India";
         this.caste = "OBC";
-        this.skill = new String[]{"sele","Selenium","3","2019","7 Years","3 Months"};
+        this.skill = new String[]{"sele","Selenium Web","3","2019","7 Years","3 Months"};
     }
 
     public String[] getSkill() {

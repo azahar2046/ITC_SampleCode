@@ -21,7 +21,7 @@ public class PageRegistrationPreferences {
     private By textFieldCaste = By.xpath("//span[contains(text(),'Category')]/parent::div/parent::div");
     private By textFieldMaritalStatus = By.xpath("//span[contains(text(),'Marital Status')]/parent::div/parent::div");
     private By radioButtonJobType = By.xpath("//input[@name='jobType']/parent::span/following-sibling::label");
-    private By radioButtonemploymentType = By.xpath("//input[@name='emplyType']/parent::span/following-sibling::label");
+    private By radioButtonEmploymentType = By.xpath("//input[@name='emplyType']/parent::span/following-sibling::label");
     private By radioButtonGender = By.xpath("//input[@name='gender']/parent::span/following-sibling::label");
     private By textFieldSkill = By.xpath("//span[contains(text(),'Skill')]/parent::div/parent::div");
     private By textFieldLastUsed = By.xpath("//span[contains(text(),'Last Used')]/parent::div/parent::div");
@@ -73,7 +73,7 @@ public class PageRegistrationPreferences {
 
     public void selectEmploymentType(String text) {
 
-        globalBrowser.radioButton(radioButtonemploymentType, text);
+        globalBrowser.radioButton(radioButtonEmploymentType, text);
 
     }
 

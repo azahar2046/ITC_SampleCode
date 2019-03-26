@@ -27,7 +27,7 @@ public class EducationDetailsValues {
         this.educationType = Enums.EducationType.Full_time.getVisibleText();
         this.PassingYear = "2016";
         this.skills_fewChars = "matl";
-        this.skills = "Matlab";
+        this.skills = "Matlab C";
 
     }
 
