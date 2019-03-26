@@ -3,7 +3,7 @@
 **Test Scenario:** ```Complete the registration process of monsterindia.com Job Portal.``` \
 **Test Steps:** \
 ```•	Fill Personal Details including name, email, password, current location, mobile number, upload resume.``` \
-```•	Fill Education Details including qualification, specialization, institute, education type, passing year, skills.```
+```•	Fill Education Details including qualification, specialization, institute, education type, passing year, skills.``` \
 ```•	Fill Preferences including upload photo, location, industry, function, role, job type, employment type etc.``` 
 
 It’s a maven project with positive test case in the Java class ```TypicalUseCases``` 
