@@ -2,7 +2,6 @@ package com.itc.qa.automat;
 
 import com.itc.qa.automat.common.RetryAnalyzer;
 import com.itc.qa.automat.usecases.UseCases;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TypicalUseCases {
